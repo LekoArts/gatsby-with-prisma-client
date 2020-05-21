@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { PageProps, Link } from 'gatsby'
-import { Box, Stack, Icon, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Text, Heading } from '@chakra-ui/core'
+import { Helmet } from 'react-helmet'
+import { Stack, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Text, Heading } from '@chakra-ui/core'
 import Header from '../components/header'
 import Layout from '../components/layout'
 import Footer from '../components/footer'
@@ -20,6 +21,7 @@ const Author: React.FC = ({ pageContext }: PageProps<null, Author>) => {
   const { author } = pageContext
   return (
     <Layout>
+      <Helmet title={author.name} />
       <Breadcrumb>
         <BreadcrumbItem>
           <BreadcrumbLink as={Link} to="/">

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { PageProps, Link as GLink } from 'gatsby'
-import { Box, Stack, Icon, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Text, Heading, Link } from '@chakra-ui/core'
+import { Helmet } from 'react-helmet'
+import { Box, Stack, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Link } from '@chakra-ui/core'
 import Header from '../components/header'
 import Layout from '../components/layout'
 import Footer from '../components/footer'
@@ -16,6 +17,7 @@ const Categories: React.FC = ({ pageContext }: PageProps<null, Categories>) => {
   const { categories } = pageContext
   return (
     <Layout>
+      <Helmet title="All Categories" />
       <Breadcrumb>
         <BreadcrumbItem>
           <BreadcrumbLink as={GLink} to="/">
@@ -26,10 +28,10 @@ const Categories: React.FC = ({ pageContext }: PageProps<null, Categories>) => {
           <BreadcrumbLink href="#">Categories</BreadcrumbLink>
         </BreadcrumbItem>
       </Breadcrumb>
-      <Header>List of Authors</Header>
+      <Header>List of Categories</Header>
       <Stack>
         {categories.map((category) => (
-          <Box key={category.id}>
+          <Box key={category.id} fontSize="lg">
             <Link as={GLink} to={`/category/${category.id}`}>
               {category.name}
             </Link>

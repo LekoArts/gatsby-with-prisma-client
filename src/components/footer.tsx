@@ -13,6 +13,10 @@ const Footer: React.FC = () => {
         <Link isExternal href="https://prisma.io">
           Prisma
         </Link>
+        . Made by{' '}
+        <Link isExternal href="https://www.lekoarts.de">
+          LekoArts
+        </Link>
         .
       </Text>
     </Box>

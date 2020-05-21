@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { PageProps, Link as GLink } from 'gatsby'
-import { Box, Stack, Icon, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Text, Heading, Link } from '@chakra-ui/core'
+import { Helmet } from 'react-helmet'
+import { Box, Stack, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Link } from '@chakra-ui/core'
 import Header from '../components/header'
 import Layout from '../components/layout'
 import Footer from '../components/footer'
@@ -17,6 +18,7 @@ const Authors: React.FC = ({ pageContext }: PageProps<null, Authors>) => {
   const { authors } = pageContext
   return (
     <Layout>
+      <Helmet title="All Authors" />
       <Breadcrumb>
         <BreadcrumbItem>
           <BreadcrumbLink as={GLink} to="/">
@@ -30,7 +32,7 @@ const Authors: React.FC = ({ pageContext }: PageProps<null, Authors>) => {
       <Header>List of Authors</Header>
       <Stack>
         {authors.map((author) => (
-          <Box key={author.id}>
+          <Box key={author.id} fontSize="lg">
             <Link as={GLink} to={`/author/${author.id}`}>
               {author.name}
             </Link>
